@@ -1,0 +1,236 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Merci le Compilo</title><meta charset="UTF-8"></meta><meta name="generator" content="Hovercraft! 1.0 http://regebro.github.com/hovercraft"></meta><link rel="stylesheet" href="css/hovercraft.css" media="all"></link><link rel="stylesheet" href="css/impressConsole.css" media="all"></link><link rel="stylesheet" href="css/highlight.css" media="all"></link><link rel="stylesheet" href="font.css" media="screen,projection"></link><script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        showProcessingMessages: false,
+        messageStyle: "none",
+        TeX : { extensions : ['color.js'] }
+      });
+    </script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script></head><body class="impress-not-supported"><div id="impress" data-transition-duration="150"><div class="step step-level-1" step="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="0" data-y="0" data-z="0"><h1 id="intro">Intro</h1><p>Il parait qu'avec le langage C++ on peut &#xE9;crire du code</p><ul><li>haut niveau</li><li>efficace</li><li>portable</li><li>adapt&#xE9; au mat&#xE9;riel</li></ul><p>Pourtant le langage est une hydre protozoaire... Donc</p></div><div class="step step-level-1" step="1" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="1600" data-y="0" data-z="0"><h1 id="merci-le-compilo-o">Merci le Compilo o/</h1><p><strong>Serge &#xAB; sans paille &#xBB; Guelton</strong></p><p>Apprendre &#xE0; communiquer avec le meilleur ami du langage</p><p><strong>CPPP &#x2014; 15 juin 2019</strong></p></div><div class="step step-level-1" step="2" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="3200" data-y="0" data-z="0"><h1 id="contexte">Contexte</h1><h2 id="environnement">Environnement</h2><ul><li><tt>clang</tt> top-of-tree</li><li>RHEL7</li><li><tt>sq=https://raw.githubusercontent.com/azadkuh/sqlite-amalgamation/master/sqlite3.c</tt></li></ul><p><em>Houat else?</em></p><img src="HouatCarte.png" class="bg"></img></div><div class="step step-level-1" step="3" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="4800" data-y="0" data-z="0"><h1 id="c-ce-language-si-rapide">C++, ce language si rapide</h1><pre class="highlight code C++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">long</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">long</span> <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">tmp</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></pre></div><div class="step step-level-1" step="4" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="6400" data-y="0" data-z="0"><h1 id="python-ce-language-si-lent">Python, ce language si lent</h1><pre class="highlight code Python"><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span></pre></div><div class="step step-level-1" step="5" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="8000" data-y="0" data-z="0"><h1 id="ze-bench-marc">Ze Bench, Marc !</h1><pre class="highlight code sh">$ seq <span class="m">1000000</span> &gt; numbers
+$ clang++ sum.cpp -o sum
+$ <span class="nb">time</span> ./sum &lt; numbers
+<span class="m">0</span>.61s user <span class="m">0</span>.01s system <span class="m">94</span>% cpu <span class="m">0</span>.659 total
+
+$ <span class="nb">time</span> python sum.py &lt; numbers
+<span class="m">0</span>.77s user <span class="m">0</span>.04s system <span class="m">99</span>% cpu <span class="m">0</span>.818 total</pre><p><strong>L'utilisateur n'a pas pr&#xE9;cis&#xE9; son intention</strong></p></div><div class="step step-level-1" step="6" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="9600" data-y="0" data-z="0"><h1 id="specifier-son-intention">Sp&#xE9;cifier son intention</h1><pre class="highlight code sh">$ clang++ -O2 sum.cpp -o sum
+$ <span class="nb">time</span> ./count &lt; numbers
+<span class="m">0</span>.34s user <span class="m">0</span>.00s system <span class="m">99</span>% cpu <span class="m">0</span>.348 total</pre></div><div class="step step-level-1" step="7" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="11200" data-y="0" data-z="0"><h1 id="optimisation-multi-critere">Optimisation multi-crit&#xE8;re</h1><pre class="highlight "> #
+ ##                           #
+ ##                           ##
+ ##            ##             ##
+ ##            ##             ##
+ ##            ##             ##
+ ##    ##      ##             ##
+ ##    ##      ##      #      ##
+ ##    ##      ##      ##     ##
+PERF  DEBUG  &#xC9;DITION  S&#xC9;CU  TAILLE</pre></div><div class="step step-level-1" step="8" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="12800" data-y="0" data-z="0"><h1 id="performance">Performance</h1><p>&#xAB; Je veux que le code g&#xE9;n&#xE9;r&#xE9; soit efficace &#xBB;</p><ul><li><tt>-O0</tt> : pas d'optimisation</li><li><tt>-O1</tt> : <span class="math ">\(\text{O1} = \frac{\text{O0} + \text{O2}}{2}\)</span></li><li><tt>-O2</tt> : optimisation qui ne devraient jamais d&#xE9;grader les perfs</li><li><tt>-O3</tt> : optimisation avec risque d'impact n&#xE9;gatif sur les perfs</li><li><tt>-O4</tt> : <span class="math ">\(\text{O3} = \text{O4}\)</span></li></ul></div><div class="step step-level-1" step="9" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="14400" data-y="0" data-z="0"><h1 id="debug">Debug</h1><p>&#xAB; Je veux que le code g&#xE9;n&#xE9;r&#xE9; soit facile &#xE0; d&#xE9;verminer &#xBB;</p><ul><li><tt>-g</tt> : inclut les infos de debug</li><li><tt>-Og</tt> : <tt>== -O1 -g</tt></li></ul><pre class="highlight code sh">$ curl <span class="nv">$sq</span> <span class="p">|</span> clang -xc -c -g - -o sq.o
+$ objdump -h sq.o <span class="p">|</span> grep debug
+  <span class="c1">#  name            size      ...
+</span>   <span class="m">9</span> .debug_str      00012b2d  ...
+  <span class="m">10</span> .debug_abbrev   0000038d  ...
+  <span class="m">11</span> .debug_info     0005056c  ...
+  <span class="m">12</span> .debug_ranges   <span class="m">00000240</span>  ...
+  <span class="m">13</span> .debug_macinfo  <span class="m">00000001</span>  ...
+  <span class="m">14</span> .debug_pubnames 0000c73a  ...
+  <span class="m">15</span> .debug_pubtypes <span class="m">00001068</span>  ...
+  <span class="m">19</span> .debug_line     <span class="m">00073402</span>  ...</pre></div><div class="step step-level-1" step="10" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="16000" data-y="0" data-z="0"><h1 id="securite">S&#xE9;curit&#xE9;</h1><p>&#xAB; Je veux me prot&#xE9;ger de moi-m&#xEA;me &#xBB;</p><ul><li><tt>-D_FORTIFY_SOURCE=2</tt></li></ul><pre class="highlight code sh">$ clang -xc -c -O2 - -S -emit-llvm -o <span class="se">\
+</span>    - -D_FORTIFY_SOURCE<span class="o">=</span><span class="m">2</span> <span class="s">&lt;&lt; EOF
+#include &lt;stdio.h&gt;
+void foo(char *s) {
+  printf(s, s);
+}
+EOF</span>
+define void @foo<span class="o">(</span>i8*<span class="o">)</span> <span class="o">{</span>
+  %2 <span class="o">=</span> tail call i32 <span class="o">(</span>i32, i8*, ...<span class="o">)</span> <span class="se">\
+</span>   @__printf_chk<span class="o">(</span>i32 <span class="m">1</span>, i8* %0, i8* %0<span class="o">)</span>
+  ret void
+<span class="o">}</span></pre></div><div class="step step-level-1" step="11" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="17600" data-y="0" data-z="0"><h1 id="taille">Taille</h1><p>&#xAB; Je veux un binaire de petite taille &#xBB;</p><ul><li><tt>-Os</tt> : <tt>-O2</tt> avec des optimisations de taille</li><li><tt>-Oz</tt> : <tt>-Os</tt> avec plus d'optimisations de taille</li></ul><pre class="highlight code sh">$ curl <span class="nv">$sq</span><span class="p">|</span>clang -xc - -O2 -c -o-<span class="p">|</span>wc -c
+<span class="m">1488400</span>
+$ curl <span class="nv">$sq</span><span class="p">|</span>clang -xc - -Os -c -o-<span class="p">|</span>wc -c
+<span class="m">850696</span>
+$ curl <span class="nv">$sq</span><span class="p">|</span>clang -xc - -Oz -c -o-<span class="p">|</span>wc -c
+<span class="m">796976</span></pre></div><div class="step step-level-1" step="12" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="19200" data-y="0" data-z="0"><h1 id="edition">&#xC9;dition</h1><ul><li><tt>-Wall</tt> : (presque) tous les avertissements</li><li><tt>-Werror[=...]</tt> : pour des soir&#xE9;es compil de folie</li><li><tt>-w</tt> : les vrais savent</li><li><tt>-Xclang -code-completion-at</tt> : <em>Intellisense</em></li></ul><pre class="highlight code sh">$ cat hello.cpp
+<span class="c1">#include &lt;iostream&gt;
+</span>int main<span class="o">(</span>int argc, char**argv<span class="o">)</span> <span class="o">{</span>
+  std::co
+$ clang++ -Xclang <span class="se">\
+</span>  -code-completion-at<span class="o">=</span>hello.cpp:3:10 <span class="se">\
+</span>  -fsyntax-only hello.cpp
+COMPLETION: codecvt : codecvt&lt;&lt;<span class="c1">#typename _InternT#&gt;, &lt;#typename _ExternT#&gt;, &lt;#typename _StateT#&gt;&gt;
+</span>COMPLETION: codecvt_base : codecvt_base
+...
+COMPLETION: cout : <span class="o">[</span><span class="c1">#ostream#]cout</span></pre></div><div class="step step-level-1" step="13" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="20800" data-y="0" data-z="0"><h1 id="faire-les-con-promis">Faire les con (promis)</h1><p><em>Debug vs Size</em></p><ul><li><tt>-g1</tt></li><li><tt>-g2</tt></li><li><tt>-g3</tt></li><li>alt. : <tt>objcopy --only-keep-debug</tt></li><li>alt. : <tt>objcopy --compress-debug-sections</tt></li><li><tt>-fdebug-macro</tt> : attention &#xE0; l'explosion en taille!</li></ul></div><div class="step step-level-1" step="14" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="22400" data-y="0" data-z="0"><h1 id="impact-du-niveau-de-debug-sur-la-taille">Impact du niveau de debug sur la taille</h1><pre class="highlight code sh">$ <span class="k">for</span> g in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="s2">""</span>
+  <span class="k">do</span>
+  <span class="nb">printf</span> <span class="s2">"-g</span><span class="nv">$g</span><span class="s2">: \t"</span> <span class="o">&amp;&amp;</span> <span class="se">\
+</span>  curl <span class="nv">$sq</span><span class="p">|</span>clang -c -O2 -g<span class="nv">$g</span> -xc - -o-<span class="p">|</span><span class="se">\
+</span>    wc -c
+  <span class="k">done</span>
+-g1   : <span class="m">3168632</span>
+-g2   : <span class="m">7025488</span>
+-g3   : <span class="m">7025488</span>
+-g    : <span class="m">7025488</span></pre><p><strong>Bonus</strong> : <tt>-fdebug-macro -g : 7167752</tt></p></div><div class="step step-level-1" step="15" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="24000" data-y="0" data-z="0"><h1 id="impact-du-niveau-d-optimisation-sur-temps-de-compilation">Impact du niveau d'optimisation sur temps de compilation</h1><pre class="highlight code sh">$ <span class="k">for</span> O in <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
+  <span class="k">do</span>
+  /usr/bin/time -f <span class="s2">"-O</span><span class="nv">$O</span><span class="s2">: %e s"</span> <span class="se">\
+</span>    clang sqlite3.c -c -O<span class="nv">$O</span>
+  <span class="k">done</span>
+-O0: <span class="m">22</span>.15 s
+-O1: <span class="m">24</span>.02 s
+-O2: <span class="m">22</span>.68 s
+-O3: <span class="m">22</span>.36 s</pre><p><em>exercice</em> : proposez une explication</p></div><div class="step step-level-1" step="16" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="25600" data-y="0" data-z="0"><h1 id="id1">Faire les con (promis)</h1><p><em>Pr&#xE9;cision vs Performance</em></p><ul><li><tt>-ffp-contract=fast|on|off</tt> : floating-point expression contraction</li><li><tt>-ffast-math</tt> : associativit&#xE9; + pas de NaN</li><li><tt>-freciprocal-math</tt> : optimise la division par un litt&#xE9;ral</li><li><tt>-Ofast</tt> : <span class="math ">\(\text{-O3} + \text{-ffast-math} = \text{-Ofast}\)</span></li></ul><pre class="highlight code sh">$ clang -xc - -o- -S -emit-llvm -O2 <span class="se">\
+</span>     -freciprocal-math <span class="s">&lt;&lt; EOF
+double rm(double x) {
+  return x / 10.;
+}
+EOF</span>
+define double @rm<span class="o">(</span>double<span class="o">)</span> <span class="o">{</span>
+  %2 <span class="o">=</span> fmul arcp double %0, <span class="m">1</span>.000000e-01
+  ret double %2
+<span class="o">}</span></pre></div><div class="step step-level-1" step="17" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="27200" data-y="0" data-z="0"><h1 id="variation">Variation</h1><pre class="highlight code sh">$ clang -xc++ - -o- -S -emit-llvm <span class="se">\
+</span>  -Ofast <span class="s">&lt;&lt; EOF
+#include &lt;numeric&gt;
+#include &lt;vector&gt;
+using namespace std;
+double acc(vector&lt;double&gt; const&amp; some)
+{
+  return accumulate(
+           some.begin(),
+           some.end(),
+           0.);
+}
+EOF</span>
+...
+%95 <span class="o">=</span> fadd fast &lt;<span class="m">2</span> x double&gt; %94, %93
+...</pre><p><strong>Pourquoi</strong> la vectorisation est-elle l&#xE9;gale ici ?</p></div><div class="step step-level-1" step="18" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="28800" data-y="0" data-z="0"><h1 id="faire-des-compromis">Faire des compromis</h1><p><em>Portabilit&#xE9; vs Performance</em></p><ul><li><tt>-march=native</tt> : sp&#xE9;cialise pour la machine h&#xF4;te</li><li><tt>-mavx</tt> : autorise ce jeu d'instruction</li></ul><pre class="highlight code sh">$ clang++ -O2 -S -o- -march<span class="o">=</span>native <span class="se">\
+</span>  -ffp-contract<span class="o">=</span>fast <span class="s">&lt;&lt; EOF
+double fma(double x, double y, double z) {
+  return x + y * z;
+}
+EOF</span>
+...
+vfmadd213sd %xmm0, %xmm2, %xmm1</pre></div><div class="step step-level-1" step="19" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="30400" data-y="0" data-z="0"><h1 id="id2">Faire des compromis</h1><p><em>Performance vs Suret&#xE9;</em></p><ul><li><tt>-fsanitize=address</tt> : instrumente les acc&#xE8;s m&#xE9;moires</li><li><tt>-fsanitize=memory</tt> : trace les acc&#xE8;s &#xE0; des valeurs non initialis&#xE9;es</li><li><tt>-fsanitize=undefined</tt> : trace les comportements ind&#xE9;finis</li><li><tt>-fsanitize=thread</tt> : d&#xE9;tecte les <em>data race</em></li></ul><pre class="highlight code c++"><span class="c1">// mem.cpp
+</span><span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp">
+</span><span class="kt">double</span> <span class="nf">x</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span></pre><p><em>QUIZZ</em> : combien de d&#xE9;r&#xE9;f&#xE9;rencements ?</p></div><div class="step step-level-1" step="20" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="32000" data-y="0" data-z="0"><h1 id="id3">...</h1><pre class="highlight code sh">$ clang++ -fsanitize<span class="o">=</span>address mem.cpp -S -emit-llvm -o- -O2</pre><pre class="highlight code llvm"><span class="p">...</span>
+<span class="nv">%h</span> <span class="p">=</span> <span class="k">getelementptr</span> <span class="k">inbounds</span> <span class="nv">%"class.std::unique_ptr"</span><span class="p">,</span> <span class="nv">%"class.std::unique_ptr"</span><span class="p">*</span> <span class="nv">%y</span><span class="p">,</span> <span class="k">i64</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span><span class="p">,</span> <span class="k">i32</span> <span class="m">0</span>
+<span class="nv-Anonymous">%1</span> <span class="p">=</span> <span class="k">ptrtoint</span> <span class="k">double</span><span class="p">**</span> <span class="nv">%h</span> <span class="k">to</span> <span class="k">i64</span>
+<span class="nv-Anonymous">%2</span> <span class="p">=</span> <span class="k">lshr</span> <span class="k">i64</span> <span class="nv-Anonymous">%1</span><span class="p">,</span> <span class="m">3</span>
+<span class="nv-Anonymous">%3</span> <span class="p">=</span> <span class="k">add</span> <span class="k">i64</span> <span class="nv-Anonymous">%2</span><span class="p">,</span> <span class="m">2147450880</span>
+<span class="nv-Anonymous">%4</span> <span class="p">=</span> <span class="k">inttoptr</span> <span class="k">i64</span> <span class="nv-Anonymous">%3</span> <span class="k">to</span> <span class="k">i8</span><span class="p">*</span>
+<span class="nv-Anonymous">%5</span> <span class="p">=</span> <span class="k">load</span> <span class="k">i8</span><span class="p">,</span> <span class="k">i8</span><span class="p">*</span> <span class="nv-Anonymous">%4</span>
+<span class="nv-Anonymous">%6</span> <span class="p">=</span> <span class="k">icmp</span> <span class="k">ne</span> <span class="k">i8</span> <span class="nv-Anonymous">%5</span><span class="p">,</span> <span class="m">0</span>
+<span class="k">br</span> <span class="k">i1</span> <span class="nv-Anonymous">%6</span><span class="p">,</span> <span class="k">label</span> <span class="nv-Anonymous">%7</span><span class="p">,</span> <span class="k">label</span> <span class="nv-Anonymous">%8</span>
+
+<span class="c">; &lt;label&gt;:7:
+</span><span class="k">call</span> <span class="k">void</span> <span class="vg">@__asan_report_load8</span><span class="p">(</span><span class="k">i64</span> <span class="nv-Anonymous">%1</span><span class="p">)</span>
+<span class="k">call</span> <span class="k">void</span> <span class="k">asm</span> <span class="k">sideeffect</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">()</span>
+<span class="k">unreachable</span>
+
+<span class="c">; &lt;label&gt;:8:
+</span><span class="nv-Anonymous">%9</span> <span class="p">=</span> <span class="k">load</span> <span class="k">double</span><span class="p">*,</span> <span class="k">double</span><span class="p">**</span> <span class="nv">%h</span><span class="p">,</span> <span class="k">align</span> <span class="m">8</span><span class="p">,</span> <span class="nv">!tbaa</span> <span class="nv-Anonymous">!2</span></pre></div><div class="step step-level-1" step="21" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="33600" data-y="0" data-z="0"><h1 id="from-future-import"><tt>from __future__ import</tt></h1><ul><li><tt>-std=c++11/14/17</tt> : choisir son standard pr&#xE9;f&#xE9;r&#xE9;</li><li><tt>-std=gnu11/...</tt> : <em>pick your poison</em></li><li><tt>-fcoroutines-ts</tt> : visions du s&#xE9;rum</li></ul><pre class="highlight code sh">$ clang --autocomplete<span class="o">=</span>-std<span class="o">=</span>,
+...
+c++2a
+...
+cuda
+...
+gnu1x
+...
+iso9899:2011</pre></div><div class="step step-level-1" step="22" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="35200" data-y="0" data-z="0"><h1 id="controler-le-compilateur-avec-plus-de-precision">Controler le compilateur avec plus de pr&#xE9;cision</h1><p><em>Security</em></p><ul><li><tt>-fstack-protector</tt> : ajoute un petit &#x1F426; sur la pile</li><li><tt>-fstack-protector-strong</tt> : <em>itou</em>, sur plus de fonction</li><li><tt>-fstack-protector-all</tt> : <em>itou</em>, sur toutes les fonctions</li><li><tt>-fsanitize=safe-stack</tt> : scinde la pile en deux</li><li><tt>-fsanitize=cfi</tt> : v&#xE9;rifie un invariant sur le flot de contr&#xF4;le</li></ul></div><div class="step step-level-1" step="23" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="36800" data-y="0" data-z="0"><h1 id="id4">...</h1><pre class="highlight code sh">$ clang -O2 -fstack-protector-all -S <span class="se">\
+</span>-o- -xc++ - <span class="s">&lt;&lt; EOF
+#include &lt;array&gt;
+using namespace std;
+auto access(array&lt;__int128_t, 10&gt; a,
+            unsigned i)
+{
+  return a[i];
+}
+EOF</span>
+...
+cmpq    <span class="o">(</span>%rsp<span class="o">)</span>, %rcx
+jne .LBB0_2
+popq    %rcx
+retq
+.LBB0_2:
+callq   __stack_chk_fail</pre></div><div class="step step-level-1" step="24" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="38400" data-y="0" data-z="0"><h1 id="optimisation-top-tier-1-2">Optimisation Top Tier (1/2)</h1><p><strong>P</strong> rofile <strong>G</strong> uided <strong>O</strong> ptimisation</p><ol><li>Compiler avec <tt>-fprofile-generate</tt></li><li>Ex&#xE9;cuter son code sur des cas repr&#xE9;sentatifs</li><li>Recompiler son code avec <tt>-fprofile-use</tt></li></ol><p>&#x21D2; Influe sur</p><ul><li>Le placement des fonctions</li><li>Le placement des blocs de base</li><li>Diverses passes d'optimisation (<em>unroll</em>, <em>inlining</em>...)</li></ul></div><div class="step step-level-1" step="25" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="40000" data-y="0" data-z="0"><h1 id="optimisation-top-tier-2-2">Optimisation Top Tier (2/2)</h1><p><strong>L</strong> ink <strong>T</strong> ime <strong>O</strong> ptimisation</p><ul><li><tt>-flto=full</tt> : perf &gt; temps de compil</li><li><tt>-flto=thin</tt> : temps de compil &gt; perf</li></ul><pre class="highlight code sh">$ <span class="nb">echo</span> <span class="s1">'foo() { return 0;}'</span> <span class="p">|</span> <span class="se">\
+</span>  clang -flto -O2 -xc - -c -ofoo.o
+$ file foo.o
+foo.o: LLVM bitcode</pre></div><div class="step step-level-1" step="26" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="41600" data-y="0" data-z="0"><h1 id="quelques-leviers-d-optimisation-supplementaires">Quelques leviers d'optimisation suppl&#xE9;mentaires</h1><p><em>Rubrique &#xE0; brac</em></p><ul><li><tt>-mllvm -inline-threshold=n</tt> : contr&#xF4;le l'expansion de proc&#xE9;dure</li><li><tt>-mllvm -unroll-threshold=500</tt> : contr&#xF4;le le d&#xE9;roulement de boucle</li><li><tt>-O3 -mllvm -polly</tt> : active les optimisations poly&#xE9;driques</li><li><tt>-fwhole-program-vtables</tt> : essaye de simplifier les tables virtuelles</li></ul></div><div class="step step-level-1" step="27" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="43200" data-y="0" data-z="0"><h1 id="restons-pragma-tic-1-3">Restons <tt>#pragma</tt> tic (1/3)</h1><p>Pour ne pas optimiser certaines fonctions (<em>e.g.</em> pour du debug) :</p><pre class="highlight code">#pragma clang optimize off
+...
+#pragma clang optimize on</pre></div><div class="step step-level-1" step="28" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="44800" data-y="0" data-z="0"><h1 id="restons-pragma-tic-2-3">Restons <tt>#pragma</tt> tic (2/3)</h1><p>Pour bien optimiser ses boucles :</p><pre class="highlight code c++"><span class="cp">#pragma clang loop unroll(enable|full)
+#pragma clang loop unroll_count(8)
+#pragma clang loop distribute(enable)
+#pragma clang loop vectorize_width(4)</span></pre></div><div class="step step-level-1" step="29" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="46400" data-y="0" data-z="0"><h1 id="restons-pragma-tic-3-3">Restons <tt>#pragma</tt> tic (3/3)</h1><p>Pour la pr&#xE9;cision :</p><pre class="highlight code c++"><span class="cp">#pragma clang fp contract(fast)</span></pre><p>Pour l'&#xE9;diteur de lien :</p><pre class="highlight code">#pragma clang section bss="myBSS" \
+              data="myData" \
+              rodata="myRodata" \
+              text="myText"</pre></div><div class="step step-level-1" step="30" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="48000" data-y="0" data-z="0"><h1 id="medley">Medley</h1><pre class="highlight code">#if __has_attribute(always_inline)
+
+#if __has_builtin(__builtin_trap)
+
+#if __has_include("myinclude.h")
+
+__clang__
+
+typedef float float4 \
+ __attribute__((ext_vector_type(4)));
+
+ __fp16
+
+__is_pod (GNU, Microsoft)</pre></div><div class="step step-level-1" step="31" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="49600" data-y="0" data-z="0"><h1 id="aide-au-developpement">Aide au d&#xE9;veloppement</h1><ul><li><dl><dt><tt>--analyze</tt></dt>effectue une analyse pouss&#xE9;e du code<dd><ul><li>Augmente les <em>temps de compilation</em></li><li><em>faux positifs</em> possibles !</li></ul></dd></dl></li><li><tt>scan-build make</tt> : automatise l'&#xE9;tape du dessus pour un projet</li></ul></div><div class="step step-level-1" step="32" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="51200" data-y="0" data-z="0"><h1 id="id5">...</h1><pre class="highlight code c++"><span class="c1">// d.cpp
+</span><span class="kt">double</span> <span class="nf">x</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">cond</span><span class="p">)</span>
+    <span class="k">delete</span> <span class="n">y</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">ncond</span> <span class="o">=</span> <span class="o">!</span><span class="n">cond</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">ncond</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">1.</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span></pre></div><div class="step step-level-1" step="33" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="52800" data-y="0" data-z="0"><h1 id="id6">...</h1><pre class="highlight code sh">$ clang++ --analyze -Xanalyzer -analyzer-output<span class="o">=</span>text d.cpp
+
+d.cpp:8:12: warning: Use of memory after it is freed
+    <span class="k">return</span> *y<span class="p">;</span>
+           ^~
+d.cpp:2:6: note: Assuming <span class="s1">'cond'</span> is not equal to <span class="m">0</span>
+  <span class="k">if</span><span class="o">(</span>cond<span class="o">)</span>
+     ^~~~
+d.cpp:2:3: note: Taking <span class="nb">true</span> branch
+  <span class="k">if</span><span class="o">(</span>cond<span class="o">)</span>
+  ^
+d.cpp:3:5: note: Memory is released
+    delete y<span class="p">;</span>
+    ^~~~~~~~
+d.cpp:5:3: note: Taking <span class="nb">false</span> branch
+  <span class="k">if</span><span class="o">(</span>ncond<span class="o">)</span>
+  ^
+d.cpp:8:12: note: Use of memory after it is freed
+    <span class="k">return</span> *y<span class="p">;</span></pre></div><div class="step step-level-1" step="34" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="54400" data-y="0" data-z="0"><h1 id="pour-comprendre">Pour comprendre...</h1><p>Un compilateur un peu lent :</p><ul><li><tt>-ftime-report</tt> : rapport d&#xE9;taill&#xE9; par passe de compil</li></ul><p>Une optimisation qui aurait mal tourn&#xE9;e</p><ul><li><tt>-Rpass=inline</tt></li><li><tt>-Rpass=unroll</tt></li><li><tt>-Rpass=loop-vectorize</tt></li></ul></div><div class="step step-level-1" step="35" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="56000" data-y="0" data-z="0"><h1 id="id7">...</h1><pre class="highlight code sh">$ <span class="o">{</span> clang -xc++ - -c <span class="se">\
+</span>  -O2 -Rpass<span class="o">=</span>inline <span class="s">&lt;&lt; EOF
+#include &lt;numeric&gt;
+#include &lt;vector&gt;
+using namespace std;
+double acc(vector&lt;double&gt; const&amp; some)
+{
+  return accumulate(
+           some.begin(),
+           some.end(),
+           0.);
+}
+EOF</span>
+<span class="o">}</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> c++filt
+...
+... remark: __gnu_cxx::__normal_iterator&lt;double const*, std::vector&lt;double, std::allocator&lt;double&gt; &gt; &gt;::__normal_iterator<span class="o">(</span>double const* const<span class="p">&amp;</span><span class="o">)</span> <span class="se">\
+</span>... inlined into std::vector&lt;double, std::allocator&lt;double&gt; &gt;::begin<span class="o">()</span> const with <span class="nv">cost</span><span class="o">=</span>-40 <span class="o">(</span><span class="nv">threshold</span><span class="o">=</span><span class="m">337</span><span class="o">)</span> <span class="o">[</span>-Rpass<span class="o">=</span>inline<span class="o">]</span></pre></div><div class="step step-level-1" step="36" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1" data-x="57600" data-y="0" data-z="0"><h1 id="une-exploration-sans-fin">Une exploration sans fin</h1><pre class="highlight code sh">$ clang --autocomplete<span class="o">=</span>- <span class="p">|</span> wc -l
+<span class="m">2847</span></pre><p>En compilation comme dans la vie, il faut une forme de <strong>balance</strong></p><figure><img src="balance.jpg" width="300px"></img><figcaption><em>credit: Wotc / Mark Poole</em></figcaption></figure></div></div><div id="slide-number" class="slide-number">
+        1
+      </div><div id="hovercraft-help" class="hide"><table><tr><th>Space</th><td>Forward</td></tr><tr><th>Right, Down, Page Down</th><td>Next slide</td></tr><tr><th>Left, Up, Page Up</th><td>Previous slide</td></tr><tr><th>G</th><td>Go to slide number</td></tr><tr><th>P</th><td>Open presenter console</td></tr><tr><th>H</th><td>Toggle this help</td></tr></table></div><script type="text/javascript" src="js/impress.js"></script><script type="text/javascript" src="js/impressConsole.js"></script><script type="text/javascript" src="js/hovercraft.js"></script><script type="text/javascript">
+        document.getElementById("impress").addEventListener("impress:stepenter", update_slide_number, false);
+      </script></body></html>

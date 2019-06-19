@@ -1,0 +1,72 @@
+
+html { font-size:32px; font-family: 'overpass', sans-serif;}
+.step {width:2048;}
+pre { font-family: 'overpass-mono', monospace; width:1024; overflow-x:hidden;}
+.code { border-left: 4px solid black; padding-left: 1em;}
+
+h1, h2, h3, h4, .slide-number { color:#CC0000;}
+
+h1 { font-variant: small-caps;}
+
+.step:before {
+    position: absolute;
+    left: 5.1em;
+    top: 1em;
+    transform: translate(-50%, -50%) ;
+    margin-left:.5em;
+    border-left: 3px solid #CC0000;
+    height: 4em;
+    content: "";
+    width: 100%;
+    display: block;
+}
+
+.bg {
+    position: absolute;
+    margin-top:5em;
+    right: 2em;
+    top: 1em;
+    opacity:0.5;
+}
+
+div#slide-number
+{
+    bottom: 1em;
+    font-size: 5vh;
+    position: absolute;
+    left: 6.5em;
+    text-align: left;
+    background-image: url('./Logo-RedHat-A-Reverse-RGB-2.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 24vh;
+}
+div#slide-number:after {
+    margin-left:.25em;
+    border-left: 3px solid #CC0000;
+    height: .5em;
+    content: "";
+    width: 100%;
+    display: block;
+}
+
+em, strong { color:#004153;}
+
+table {
+    color: #333; /* Lighten up font color */
+    width: 640px;
+    border-collapse:
+    collapse; border-spacing: 0;
+}
+
+td, th { border: 1px solid #CCC;} /* Make cells a bit taller */
+
+th {
+    background: #F3F3F3; /* Light grey background */
+    font-weight: bold; /* Make sure they're bold */
+}
+
+td {
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; /* Center our text */
+}
