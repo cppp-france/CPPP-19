@@ -6,7 +6,15 @@ Slides and resources from CPPP 2019
 
 ## Presentations
 
+### Progress
+
+### Produce
+
+Adding A New clang-tidy Check - Jérémy Demeule
+
 Quickly Testing Legacy Code - Clare Macrae
+
+### Push Forward
 
 ## Others
 
