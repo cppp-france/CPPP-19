@@ -4,6 +4,8 @@ Slides and resources from CPPP 2019
 
 ## Keynote
 
+Emotional Code - Kate Gregory
+
 ## Presentations
 
 ### Progress
