@@ -10,6 +10,8 @@ Emotional Code - Kate Gregory
 
 ### Progress
 
+A State of Compile Time Regular Expressions - Hana Dusíková
+
 ### Produce
 
 Tools to Ease Cross-Platform C++ Development - Simon Brand
