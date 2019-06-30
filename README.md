@@ -24,6 +24,8 @@ Quickly Testing Legacy Code - Clare Macrae
 
 ### Push Forward
 
+Merci le Compilo - Serge Guelton
+
 ## Others
 
 Introduction - Joël Falcou & Fred Tingaud
