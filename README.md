@@ -14,6 +14,8 @@ Emotional Code - Kate Gregory
 
 Adding A New clang-tidy Check - Jérémy Demeule
 
+The Anatomy of an Exploit - Patricia Aas
+
 Quickly Testing Legacy Code - Clare Macrae
 
 ### Push Forward
