@@ -12,6 +12,8 @@ Emotional Code - Kate Gregory
 
 ### Produce
 
+Tools to Ease Cross-Platform C++ Development - Simon Brand
+
 Adding A New clang-tidy Check - Jérémy Demeule
 
 The Anatomy of an Exploit - Patricia Aas
