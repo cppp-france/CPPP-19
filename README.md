@@ -8,7 +8,7 @@ Emotional Code - Kate Gregory
 
 ## Presentations
 
-### Progress
+### Push Forward
 
 A State of Compile Time Regular Expressions - Hana Dusíková
 
@@ -22,9 +22,11 @@ The Anatomy of an Exploit - Patricia Aas
 
 Quickly Testing Legacy Code - Clare Macrae
 
-### Push Forward
+### Progress
 
 Merci le Compilo - Serge Guelton
+
+Élégance, style épuré et classe - Loïc Joly
 
 ## Others
 
