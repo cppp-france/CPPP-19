@@ -24,6 +24,8 @@ Quickly Testing Legacy Code - Clare Macrae
 
 ### Progress
 
+How to make your code better with C++ algorithms - Mathieu Ropert
+
 Merci le Compilo - Serge Guelton
 
 Élégance, style épuré et classe - Loïc Joly
