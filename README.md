@@ -14,6 +14,8 @@ A State of Compile Time Regular Expressions - Hana Dusíková
 
 Tacit DSL All the Things - Odin Holmes
 
+Identifying Monoids - Ben Deane
+
 ### Produce
 
 Tools to Ease Cross-Platform C++ Development - Simon Brand
