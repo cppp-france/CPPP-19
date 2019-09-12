@@ -12,6 +12,8 @@ Emotional Code - Kate Gregory
 
 A State of Compile Time Regular Expressions - Hana Dusíková
 
+C++ Modules: What You Should Know - Gabriel Dos Reis
+
 Tacit DSL All the Things - Odin Holmes
 
 Identifying Monoids - Ben Deane
