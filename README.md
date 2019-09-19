@@ -30,6 +30,8 @@ Slides and resources from CPPP 2019
 
 [Adding A New clang-tidy Check - Jérémy Demeule](adding_a_new_clang-tidy_check-Jeremy_Demeule)
 
+[![Adding A New clang-tidy Check Video](https://img.youtube.com/vi/K-WhaEUEZWc/0.jpg)](https://www.youtube.com/watch?v=K-WhaEUEZWc)
+
 [The Anatomy of an Exploit - Patricia Aas](the_anatomy_of_an_exploit-Patricia_Aas)
 
 [Quickly Testing Legacy Code - Clare Macrae](quickly_testing_legacy_code-Clare_Macrae)
