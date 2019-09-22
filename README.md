@@ -14,6 +14,8 @@ Slides and resources from CPPP 2019
 
 [A State of Compile Time Regular Expressions - Hana Dusíková](a_state_of_compile_time_regular_expressions-Hana_Dusikova)
 
+[![A State of Compile Time Regular Expressions Video](https://img.youtube.com/vi/i7H5TSVJy0Y/0.jpg)](https://www.youtube.com/watch?v=i7H5TSVJy0Y)
+
 [C++ Modules: What You Should Know - Gabriel Dos Reis](C%2B%2B_modules_what_you_should_know-Gabriel_Dos_Reis)
 
 [Tacit DSL All the Things - Odin Holmes](tacit_dsl_all_the_things-Odin_Holmes)
