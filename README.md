@@ -18,6 +18,8 @@ Slides and resources from CPPP 2019
 
 [C++ Modules: What You Should Know - Gabriel Dos Reis](C%2B%2B_modules_what_you_should_know-Gabriel_Dos_Reis)
 
+[![C++ Modules: What You Should Know Video](https://img.youtube.com/vi/MP6SJEBt6Ss/0.jpg)](https://www.youtube.com/watch?v=MP6SJEBt6Ss)
+
 [Tacit DSL All the Things - Odin Holmes](tacit_dsl_all_the_things-Odin_Holmes)
 
 [Identifying Monoids - Ben Deane](identifying_monoids-Ben_Deane)
