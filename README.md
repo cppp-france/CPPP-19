@@ -38,6 +38,8 @@ Slides and resources from CPPP 2019
 
 [The Anatomy of an Exploit - Patricia Aas](the_anatomy_of_an_exploit-Patricia_Aas)
 
+[![The Anatomy of an Exploit Video](https://img.youtube.com/vi/RR_pcY6wqUw/0.jpg)](https://www.youtube.com/watch?v=RR_pcY6wqUw)
+
 [Quickly Testing Legacy Code - Clare Macrae](quickly_testing_legacy_code-Clare_Macrae)
 
 [![Quickly Testing Legacy Code Video](https://img.youtube.com/vi/JnoNTc-BmB8/0.jpg)](https://www.youtube.com/watch?v=JnoNTc-BmB8)
